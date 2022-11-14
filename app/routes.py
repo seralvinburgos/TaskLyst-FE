@@ -53,3 +53,65 @@ def create_task():
     else:
         return render_template("create_failure.html")
 
+
+@app.get("/task/update")
+def update_form():
+    return render_template("update.html")
+
+
+@app.post("/task/update")
+def update_task():
+    raw_data = request.form
+    task_json = {
+        "title": raw_data.get("title"),
+        "subtitle": raw_data.get("subtitle"),
+        "body": raw_data.get("body")
+    }
+    response = requests.post(BACKEND_URL, json=task_json)
+    if response.status_code == 201:
+        return render_template("update_success.html")
+    else:
+        return render_template("update_failure.html")
+
+
+@app.get("/task/delete/<int:task_id>")
+def delete_task_by_id(task_id):
+    # url = "%s/%s" % (BACKEND_URL, task_id)
+    response = requests.delete(BACKEND_URL, task_id)
+    if response.status_code == 201:
+        return render_template("delete_success.html")
+    else:
+        return render_template("delete_failure.html")
+# @app.put("/update/<int:task_id>")
+# def update_task_by_id(task_id):
+#     url = "%s/%s" % (BACKEND_URL, task_id)
+#     response = requests.get(url).json()
+#     return render_template(
+#             "update.html", 
+#             task=response["task"], 
+#     )
+
+
+# @app.post("/update/<int:task_id>")
+# def update_task(task_id):
+#     url = "%s/%s" % (BACKEND_URL, task_id)
+#     raw_data = request.form
+#     task_json = {
+#         "title": raw_data.get("title"),
+#         "subtitle": raw_data.get("subtitle"),
+#         "body": raw_data.get("body")
+#     }
+#     response = requests.post(BACKEND_URL, json=task_json)
+#     if response.status_code == 201:
+#         return render_template("update_success.html")
+#     else:
+#         return render_template("update_failure.html")
+
+
+# @app.delete("/task/<int:task_id>")
+# def delete_task(task_id):
+#     response = requests.delete(BACKEND_URL, json=task_id)
+#     if response.status_code == 201:
+#         return render_template("delete_success.html")
+#     else:
+#         return render_template("delete_failure.html")

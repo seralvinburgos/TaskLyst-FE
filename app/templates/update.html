@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 
-{% block title %}New Task{% endblock title %}
+{% block title %}Update Task{% endblock title %}
 
 
 {% block content %}
@@ -26,9 +26,9 @@
         font-size: 0.8rem;
     }
 </style>
-<h3>New Task</h3>
+<h3>Update Task</h3>
 <br>
-<form method="POST" action="{{ url_for('create_task') }}">
+<form method="POST" action="{{ url_for('update_task') }}">
     <div class="input-group mb-4">
         <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
@@ -42,7 +42,7 @@
         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
     </div>
     <p>
-        <input type="submit" value="Create" class="btn btn-dark">
+        <input type="submit" value="Update" class="btn btn-dark">
     </p>
 </form>
 {% endblock content %}
