@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+}
+body {
+    background-color: azure;
+}
+#navTitle {
+    color: goldenrod;
+}
+#mainLine {
+    margin-top: 5rem;
+    font-weight: 500;
+    font-size: 20rem;
+}

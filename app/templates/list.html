@@ -4,15 +4,22 @@
 {% block title %}Tasks{% endblock title %}
 
 
-{% block content %}
+{% block content %} 
+<style>
+    h1 {
+        text-align: center;
+    }
+</style>
 <h1>Tasks</h1>
-<table class="table table-striped">
+<br>
+<table class="table table-light table-striped border table-bordered">
     <tr>
         <th>ID</th>
         <th>Title</th>
         <th>Subtitle</th>
         <th>Body</th>
         <th>Active</th>
+        <th>Delete</th>
     </tr>
     {% for task in tasks %}
         <tr>
@@ -24,6 +31,10 @@
             <td>{{ task["subtitle"] }}</td>
             <td>{{ task["body"] }}</td>
             <td>{{ task["active"] }}</td>
+            <td>
+                <a href=" {{ task['delete'] }}"><i class="bi bi-trash"></i></a>
+                
+            </td>
         </tr>
     {% endfor %}
 </table>

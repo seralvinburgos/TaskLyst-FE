@@ -4,8 +4,29 @@
 {% block title %}Home{% endblock title %}
 
 
-{% block content %}
-<h1>Task Management System Home</h1>
-<p>Welcome to the task management system.</p>
+{% block content %} 
+<style>
+    .welcome {
+        height: 50vh;
+        background-color: lightpink;
+        background-image: url('/static/images/back1.jpg');
+        background-size: cover;
+        margin-top: 5rem; 
+        padding-top: 2rem;
+        padding-left: 5rem;
+        align-items: center;
+    }
+    #mainLine span {
+        color: goldenrod;
+        font-size: 4rem;
+    }
+</style>
+<div class="container-fluid welcome shadow rounded">
+<div id="mainLine">
+<h1>Welcome to <span>TaskLYST</span></h1>
+</div>
+<br><br>
+<p>Just another task management system.</p>
 <p>Use this application to manage your day to day tasks.</p>
+</div>
 {% endblock content %}
