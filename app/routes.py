@@ -68,7 +68,7 @@ def update_task():
         "body": raw_data.get("body")
     }
     response = requests.post(BACKEND_URL, json=task_json)
-    if response.status_code == 201:
+    if response.status_code == 204:
         return render_template("update_success.html")
     else:
         return render_template("update_failure.html")
@@ -77,8 +77,8 @@ def update_task():
 @app.get("/task/delete/<int:task_id>")
 def delete_task_by_id(task_id):
     url = "%s/%s" % (BACKEND_URL, task_id)
-    response = requests.delete(url).json()
-    if response.status_code == 201:
+    response = requests.delete(url)
+    if response.status_code == 204:
         return render_template("delete_success.html")
     else:
         return render_template("delete_failure.html") 
