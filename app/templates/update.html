@@ -31,15 +31,15 @@
 <form method="POST" action="{{ url_for('update_task') }}">
     <div class="input-group mb-4">
         <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <input type="text" name="title" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ task['title'] }}">
     </div>
     <div class="input-group mb-4">
         <span class="input-group-text" id="inputGroup-sizing-default">Subtitle</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <input type="text" name="subtitle" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ task['subtitle'] }}">
     </div>
     <div class="input-group mb-4">
         <span class="input-group-text" id="inputGroup-sizing-default">Body</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        <input type="text" name="body" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ task['body'] }}">
     </div>
     <p>
         <input type="submit" value="Update" class="btn btn-dark">

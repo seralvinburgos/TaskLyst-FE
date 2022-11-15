@@ -45,10 +45,14 @@
             <td>{{ task["body"] }}</td>
             <td id="activeHdr">{{ task["active"] }}</td>
             <td>
-                <a href="{{ url_for('update_task', task_id=task['id']) }}" id="updateBtn"><i class="fa-solid fa-pen-to-square d-flex justify-content-center"></i></a>
+                <a href="{{ url_for('update_task_by_id', task_id=task['id']) }}">
+                    <i class="fa-solid fa-pen-to-square d-flex justify-content-center"></i>
+                </a>
             </td>
             <td>
-                <a href="{{ url_for('delete_task_by_id', task_id=task['id']) }}" id="deleteBtn"><i class="fa-solid fa-trash d-flex justify-content-center"></i></a>
+                <a href="{{ url_for('delete_task_by_id', task_id=task['id']) }}" id="deleteBtn">
+                    <i class="fa-solid fa-trash d-flex justify-content-center"></i>
+                </a>
             </td>
         </tr>
     {% endfor %}
