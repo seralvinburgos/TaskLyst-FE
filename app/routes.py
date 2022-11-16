@@ -1,9 +1,7 @@
-from flask import (
-        Flask, 
-        request,
-        render_template
-)
+import json
+
 import requests
+from flask import Flask, render_template, request
 
 BACKEND_URL = "http://127.0.0.1:5000/tasks"
 
@@ -65,15 +63,16 @@ def update_task_by_id(task_id):
     )
 
 
-@app.post("/task/update/<int:task_id>")
-def update_task(task_id, title, subtitle, body):
+@app.post("/task/update/")
+def update_task():
     raw_data = request.form
-    task_json = {
-        "title": raw_data.get(title),
-        "subtitle": raw_data.get(subtitle),
-        "body": raw_data.get(body)
+    task_json = { 
+        "title": raw_data.get("title"),
+        "subtitle": raw_data.get("subtitle"),
+        "body": raw_data.get("body")
     }
-    response = requests.put(BACKEND_URL, json=task_json)
+    
+    response = requests.post(BACKEND_URL, json=task_json)
     if response.status_code == 204:
         return render_template("update_success.html")
     else:
