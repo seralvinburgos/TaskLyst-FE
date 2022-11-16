@@ -1,7 +1,7 @@
 import json
 
 import requests
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 BACKEND_URL = "http://127.0.0.1:5000/tasks"
 
@@ -62,6 +62,19 @@ def update_task_by_id(task_id):
             task=response["task"], 
     )
 
+# @app.post("/task/update/<int:task_id>")
+# def update_task(task_id):
+#     task_to_update = BACKEND_URL.query.get_or_404(task_id)
+#     if request.method == "POST":
+#         task_to_update.name = request.form["title"]
+#         try:
+#             BACKEND_URL.session.commit()
+#             return redirect('/list')
+#         except:
+#             return "There was a problem updating the task."
+#     else: return render_template('update.html', task_to_update=task_to_update)
+
+
 
 @app.post("/task/update/<int:task_id>")
 def update_task(task_id):
@@ -71,7 +84,7 @@ def update_task(task_id):
         "subtitle": raw_data.get("subtitle"),
         "body": raw_data.get("body")
     }
-    response = requests.put(BACKEND_URL, json=task_json)
+    response = requests.get(BACKEND_URL, json=task_json)
     if response.status_code == 204:
         return render_template("update_success.html")
     else:
