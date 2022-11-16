@@ -84,7 +84,7 @@ def update_task(task_id):
         "subtitle": raw_data.get("subtitle"),
         "body": raw_data.get("body")
     }
-    response = requests.get(BACKEND_URL, json=task_json)
+    response = requests.put(BACKEND_URL, json=task_json)
     if response.status_code == 204:
         return render_template("update_success.html")
     else:
