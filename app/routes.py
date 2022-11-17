@@ -63,15 +63,16 @@ def update_task_by_id(task_id):
     )
 
 
-@app.put("/task/update/<int:task_id>")
-def update_task():
+@app.post("/task/update/<int:task_id>")
+def update_task(task_id):
     raw_data = request.form
     task_json = { 
         "title": raw_data.get("title"),
         "subtitle": raw_data.get("subtitle"),
         "body": raw_data.get("body")
     }
-    response = requests.put(BACKEND_URL, json=task_json)
+    url = "%s/%s" % (BACKEND_URL, task_id)
+    response = requests.put(url, json=task_json)
     if response.status_code == 204:
         return render_template("update_success.html")
     else:

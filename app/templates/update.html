@@ -28,7 +28,7 @@
 </style>
 <h3>Update Task</h3>
 <br>
-<form method="POST" action="{{ url_for('update_task_by_id', task_id=task['id']) }}">
+<form method="POST" action="{{ url_for('update_task', task_id=task['id']) }}">
     <div class="input-group mb-4">
         <span class="input-group-text rounded-0" id="inputGroup-sizing-default">Title</span>
         <input type="text" name="title" class="form-control rounded-0" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ task['title'] }}">
