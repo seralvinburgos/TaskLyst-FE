@@ -30,19 +30,19 @@
 <br>
 <form method="POST" action="{{ url_for('update_task_by_id', task_id=task['id']) }}">
     <div class="input-group mb-4">
-        <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
-        <input type="text" name="title" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ task['title'] }}">
+        <span class="input-group-text rounded-0" id="inputGroup-sizing-default">Title</span>
+        <input type="text" name="title" class="form-control rounded-0" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ task['title'] }}">
     </div>
     <div class="input-group mb-4">
-        <span class="input-group-text" id="inputGroup-sizing-default">Subtitle</span>
-        <input type="text" name="subtitle" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ task['subtitle'] }}">
+        <span class="input-group-text rounded-0" id="inputGroup-sizing-default">Subtitle</span>
+        <input type="text" name="subtitle" class="form-control rounded-0" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ task['subtitle'] }}">
     </div>
     <div class="input-group mb-4">
-        <span class="input-group-text" id="inputGroup-sizing-default">Body</span>
-        <input type="text" name="body" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ task['body'] }}">
+        <span class="input-group-text rounded-0" id="inputGroup-sizing-default">Body</span>
+        <input type="text" name="body" class="form-control rounded-0" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ task['body'] }}">
     </div>
     <p>
-        <input type="submit" value="Update" class="btn btn-dark">
+        <input type="submit" value="Update" class="btn btn-dark rounded-0">
     </p>
 </form>
 {% endblock content %}
