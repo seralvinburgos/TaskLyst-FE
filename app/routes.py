@@ -62,22 +62,9 @@ def update_task_by_id(task_id):
             task=response["task"], 
     )
 
-# @app.post("/task/update/<int:task_id>")
-# def update_task(task_id):
-#     task_to_update = BACKEND_URL.query.get_or_404(task_id)
-#     if request.method == "POST":
-#         task_to_update.name = request.form["title"]
-#         try:
-#             BACKEND_URL.session.commit()
-#             return redirect('/list')
-#         except:
-#             return "There was a problem updating the task."
-#     else: return render_template('update.html', task_to_update=task_to_update)
 
-
-
-@app.post("/task/update/<int:task_id>")
-def update_task(task_id):
+@app.put("/task/update/<int:task_id>")
+def update_task():
     raw_data = request.form
     task_json = { 
         "title": raw_data.get("title"),
